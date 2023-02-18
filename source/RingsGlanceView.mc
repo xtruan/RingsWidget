@@ -84,7 +84,7 @@ class RingsGlanceView extends Ui.GlanceView {
             r - (8 * s), 
             Gfx.ARC_CLOCKWISE, 
             90, 
-            90);
+            calories);
             
         if (!App.getApp().isMonochrome()) {
             dc.setColor( Gfx.COLOR_GREEN, Gfx.COLOR_TRANSPARENT );
