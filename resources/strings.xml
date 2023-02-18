@@ -1,0 +1,6 @@
+<resources>
+    <string id="AppName" scope="glance">Rings</string>
+    <string id="DeviceId" scope="glance">default</string>
+    <string id="CalorieGoal">Calorie Goal</string>
+    <string id="MyNumberError">Error setting number</string>
+</resources>

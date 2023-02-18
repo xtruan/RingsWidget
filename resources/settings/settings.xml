@@ -1,0 +1,7 @@
+<settings>
+    
+    <setting propertyKey="@Properties.calorieGoal" title="@Strings.CalorieGoal" prompt="@Strings.CalorieGoal">
+        <settingConfig type="numeric" errorMessage="@Strings.MyNumberError" />
+    </setting>
+
+</settings>
