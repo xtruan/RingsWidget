@@ -59,21 +59,21 @@ class RingsGlanceView extends Ui.GlanceView {
             dc.setAntiAlias(true);
         }
         
-        dc.setPenWidth(6 * s);
+        dc.setPenWidth(8 * s);
         
 //        dc.setColor( Gfx.COLOR_DK_GRAY, Gfx.COLOR_TRANSPARENT );
 //        dc.drawCircle(
 //            x,
 //            y,
-//            r - (6 * s));
+//            r - (8 * s));
 //        dc.drawCircle(
 //            x,
 //            y,
-//            r - (13 * s));
+//            r - (18 * s));
 //        dc.drawCircle(
 //            x,
 //            y,
-//            r - (20 * s));
+//            r - (28 * s));
         
         if (!App.getApp().isMonochrome()) {
             dc.setColor( Gfx.COLOR_RED, Gfx.COLOR_TRANSPARENT );
@@ -81,7 +81,7 @@ class RingsGlanceView extends Ui.GlanceView {
         dc.drawArc(
             x, 
             y, 
-            r - (6 * s), 
+            r - (8 * s), 
             Gfx.ARC_CLOCKWISE, 
             90, 
             90);
@@ -92,7 +92,7 @@ class RingsGlanceView extends Ui.GlanceView {
         dc.drawArc(
             x, 
             y, 
-            r - (13 * s), 
+            r - (18 * s), 
             Gfx.ARC_CLOCKWISE, 
             90, 
             activeMins);
@@ -103,7 +103,7 @@ class RingsGlanceView extends Ui.GlanceView {
         dc.drawArc(
             x, 
             y, 
-            r - (20 * s), 
+            r - (28 * s), 
             Gfx.ARC_CLOCKWISE, 
             90, 
             steps);
