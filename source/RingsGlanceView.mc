@@ -37,7 +37,7 @@ class RingsGlanceView extends Ui.GlanceView {
         var activeMins = App.getApp().scaleProgressToAngle(rings[1]);
         var steps = App.getApp().scaleProgressToAngle(rings[2]);
         
-        var x = dc.getWidth() / 2.5;
+        var x = dc.getWidth() / 2;
         var y = dc.getHeight() / 2;
         
         // Set background color
@@ -51,6 +51,9 @@ class RingsGlanceView extends Ui.GlanceView {
             r = y;
         }
         var s = (r / 30);
+        
+        // Shift left for glance pretty-making
+        x = r - (2 * s);
         
         if (dc has :setAntiAlias) {
             dc.setAntiAlias(true);
@@ -81,7 +84,7 @@ class RingsGlanceView extends Ui.GlanceView {
             r - (6 * s), 
             Gfx.ARC_CLOCKWISE, 
             90, 
-            calories);
+            90);
             
         if (!App.getApp().isMonochrome()) {
             dc.setColor( Gfx.COLOR_GREEN, Gfx.COLOR_TRANSPARENT );
