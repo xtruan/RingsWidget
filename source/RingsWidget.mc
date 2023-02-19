@@ -16,23 +16,24 @@ class RingsWidget extends App.AppBase {
         AppBase.initialize();
     }
     
+    // https://forums.garmin.com/developer/connect-iq/f/discussion/208338/active-calories?pifragment-1298=2#979052
     function calculateActiveCalories(curCalories) {
-    	var today = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);		
-		var profile = UserProfile.getProfile();
-		var age    = today.year - profile.birthYear;
-		var weight = profile.weight / 1000.0;
+        var today = Gregorian.info(Time.now(), Time.FORMAT_MEDIUM);        
+        var profile = UserProfile.getProfile();
+        var age = today.year - profile.birthYear;
+        var weight = profile.weight / 1000.0;
 
-		var restCalories = 2000.0;
-		if (profile.gender == UserProfile.GENDER_MALE) {
-			restCalories = 5.2 - 6.116*age + 7.628*profile.height + 12.2*weight;
-		} else if (profile.gender == UserProfile.GENDER_FEMALE) {
-			restCalories = -197.6 - 6.116*age + 7.628*profile.height + 12.2*weight;
-		} else { // GENDER_MALE
-			restCalories = 5.2 - 6.116*age + 7.628*profile.height + 12.2*weight;
-		}
-		restCalories = Math.round((today.hour*60+today.min) * restCalories / 1440 ).toNumber();
-		var activeCalories = (curCalories - restCalories) * 1.0;
-		return activeCalories;
+        var restCalories = 2000.0;
+        if (profile.gender == UserProfile.GENDER_MALE) {
+            restCalories = 5.2 - 6.116*age + 7.628*profile.height + 12.2*weight;
+        } else if (profile.gender == UserProfile.GENDER_FEMALE) {
+            restCalories = -197.6 - 6.116*age + 7.628*profile.height + 12.2*weight;
+        } else { // GENDER_MALE
+            restCalories = 5.2 - 6.116*age + 7.628*profile.height + 12.2*weight;
+        }
+        restCalories = Math.round((today.hour*60+today.min) * restCalories / 1440 ).toNumber();
+        var activeCalories = (curCalories - restCalories) * 1.0;
+        return activeCalories;
     }
     
     function getRingsProgress() {
@@ -54,8 +55,7 @@ class RingsWidget extends App.AppBase {
         }
         var activeCalories = 0.0;
         if (restingCaloriesGoal == 0.0) {
-            // if resting calories goal is zero, calculate using magic formula from here:
-            // https://forums.garmin.com/developer/connect-iq/f/discussion/208338/active-calories?pifragment-1298=2#979052
+            // if resting calories goal is zero, calculate using magic formula
             activeCalories = calculateActiveCalories(totalCalories);
         } else {
             // else use user provided resting calories, scaled to the time of day, 
@@ -64,7 +64,7 @@ class RingsWidget extends App.AppBase {
             activeCalories = totalCalories - restingCaloriesNow;   
         }
         if (activeCalories < 0.0) {
-        	// failsafe: active calories can't be negative
+            // failsafe: active calories can't be negative
             activeCalories = 0.0;
         }
         // get user provided active calories goal
