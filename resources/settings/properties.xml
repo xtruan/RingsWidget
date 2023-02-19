@@ -1,3 +1,4 @@
 <properties>
-    <property id="calorieGoal" type="number">2000</property>
+    <property id="calorieGoal" type="number">0</property>
+    <property id="activeCalorieGoal" type="number">500</property>
 </properties>

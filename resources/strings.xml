@@ -1,6 +1,7 @@
 <resources>
     <string id="AppName" scope="glance">Rings</string>
     <string id="DeviceId" scope="glance">default</string>
-    <string id="CalorieGoal">Calorie Goal</string>
+    <string id="CalorieGoal">Resting Calories (0 to calculate automatically)</string>
+    <string id="ActiveCalorieGoal">Active Calorie Goal</string>
     <string id="MyNumberError">Error setting number</string>
 </resources>
