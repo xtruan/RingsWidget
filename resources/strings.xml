@@ -7,5 +7,10 @@
     <string id="ActiveMinsMode_total">Total (Moderate + 2x Vigorous)</string>
     <string id="ActiveMinsMode_sum">Moderate + Vigorous</string>
     <string id="ActiveMinsMode_vigorous">Vigorous Only</string>
+    <string id="SecondRingMode">2x Goal Ring Color</string>
+    <string id="SecondRingMode_yellow">Yellow</string>
+    <string id="SecondRingMode_orange">Orange</string>
+    <string id="SecondRingMode_white">White</string>
+    <string id="SecondRingMode_none">Don't Draw</string>
     <string id="MyNumberError">Error setting number</string>
 </resources>

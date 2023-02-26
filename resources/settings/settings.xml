@@ -15,5 +15,14 @@
             <listEntry value="2">@Strings.ActiveMinsMode_vigorous</listEntry>
         </settingConfig>
     </setting>
+    
+    <setting propertyKey="@Properties.secondRingMode" title="@Strings.SecondRingMode">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.SecondRingMode_yellow</listEntry>
+            <!--listEntry value="1">@Strings.SecondRingMode_orange</listEntry-->
+            <listEntry value="2">@Strings.SecondRingMode_white</listEntry>
+            <listEntry value="3">@Strings.SecondRingMode_none</listEntry>
+        </settingConfig>
+    </setting>
 
 </settings>

@@ -2,4 +2,5 @@
     <property id="calorieGoal" type="number">0</property>
     <property id="activeCalorieGoal" type="number">500</property>
     <property id="activeMinsMode" type="number">0</property>
+    <property id="secondRingMode" type="number">0</property>
 </properties>
