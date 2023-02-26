@@ -7,5 +7,13 @@
     <setting propertyKey="@Properties.activeCalorieGoal" title="@Strings.ActiveCalorieGoal" prompt="@Strings.ActiveCalorieGoal">
         <settingConfig type="numeric" errorMessage="@Strings.MyNumberError" />
     </setting>
+    
+    <setting propertyKey="@Properties.activeMinsMode" title="@Strings.ActiveMinsMode">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.ActiveMinsMode_total</listEntry>
+            <listEntry value="1">@Strings.ActiveMinsMode_sum</listEntry>
+            <listEntry value="2">@Strings.ActiveMinsMode_vigorous</listEntry>
+        </settingConfig>
+    </setting>
 
 </settings>

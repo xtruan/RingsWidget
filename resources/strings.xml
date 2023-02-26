@@ -3,5 +3,9 @@
     <string id="DeviceId" scope="glance">default</string>
     <string id="CalorieGoal">Resting Calories (0 to calculate automatically)</string>
     <string id="ActiveCalorieGoal">Active Calorie Goal</string>
+    <string id="ActiveMinsMode">Active Minutes Mode</string>
+    <string id="ActiveMinsMode_total">Total (Moderate + 2x Vigorous)</string>
+    <string id="ActiveMinsMode_sum">Moderate + Vigorous</string>
+    <string id="ActiveMinsMode_vigorous">Vigorous Only</string>
     <string id="MyNumberError">Error setting number</string>
 </resources>

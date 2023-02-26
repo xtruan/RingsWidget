@@ -75,10 +75,23 @@ class RingsWidget extends App.AppBase {
         
         // ACTIVE MINS (GREEN) RING
         
+        // get active mins mode
+        var activeMinsMode = getPropertySafe("activeMinsMode");
+        if (activeMinsMode == null) {
+            activeMinsMode = 0; // 0 means use Total (Moderate + 2x Vigorous)
+        }
         // get active mins
         var activeMins = 0.0;
         if (info has :activeMinutesDay && info.activeMinutesDay != null) {
-            activeMins = info.activeMinutesDay.total * 1.0;
+            if (activeMinsMode == 0) { // Total (Moderate + 2x Vigorous)
+                activeMins = info.activeMinutesDay.total * 1.0;
+            } else if (activeMinsMode == 1) { // Moderate + Vigorous
+                activeMins = (info.activeMinutesDay.vigorous + info.activeMinutesDay.moderate) * 1.0;
+            } else if (activeMinsMode == 2) { // Vigorous Only
+                activeMins = info.activeMinutesDay.vigorous * 1.0;
+            } else { // fallback - Total (Moderate + 2x Vigorous)
+                activeMins = info.activeMinutesDay.total * 1.0;
+            }
         }
         // get active mins goal
         var activeMinsGoal = 150.0 / 7.0; // 150 active minutes per week default
