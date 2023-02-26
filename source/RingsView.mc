@@ -75,7 +75,11 @@ class RingsView extends Ui.View {
         // first loop, colored rings
         
         if (!App.getApp().isMonochrome()) {
-            dc.setColor( Gfx.COLOR_RED, Gfx.COLOR_TRANSPARENT );
+            if (rings[0] > 1.0) {
+                dc.setColor( Gfx.COLOR_DK_RED, Gfx.COLOR_TRANSPARENT );
+            } else {
+                dc.setColor( Gfx.COLOR_RED, Gfx.COLOR_TRANSPARENT );
+            }
         }
         dc.drawArc(
             x, 
@@ -86,7 +90,11 @@ class RingsView extends Ui.View {
             calories);
             
         if (!App.getApp().isMonochrome()) {
-            dc.setColor( Gfx.COLOR_GREEN, Gfx.COLOR_TRANSPARENT );
+            if (rings[1] > 1.0) {
+                dc.setColor( Gfx.COLOR_DK_GREEN, Gfx.COLOR_TRANSPARENT );
+            } else {
+                dc.setColor( Gfx.COLOR_GREEN, Gfx.COLOR_TRANSPARENT );
+            }
         }
         dc.drawArc(
             x, 
@@ -97,7 +105,11 @@ class RingsView extends Ui.View {
             activeMins);
             
         if (!App.getApp().isMonochrome()) {
-            dc.setColor( Gfx.COLOR_BLUE, Gfx.COLOR_TRANSPARENT );
+            if (rings[2] > 1.0) {
+                dc.setColor( Gfx.COLOR_DK_BLUE, Gfx.COLOR_TRANSPARENT );
+            } else {
+                dc.setColor( Gfx.COLOR_BLUE, Gfx.COLOR_TRANSPARENT );
+            }
         }
         dc.drawArc(
             x, 
@@ -110,27 +122,26 @@ class RingsView extends Ui.View {
         // second loop, 2x goal color ring
         
         dc.setColor( Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT );
-        if (!App.getApp().isMonochrome()) {
-            // get second ring mode
-            var secondRingMode = App.getApp().getPropertySafe("secondRingMode");
-            if (secondRingMode == null) {
-                secondRingMode = 0; // 0 means use COLOR_YELLOW
-            }
         
-            if (secondRingMode == 0) { // 0 means use COLOR_YELLOW
+        // get second ring mode
+        var secondRingMode = App.getApp().getPropertySafe("secondRingMode");
+        if (secondRingMode == null) {
+            secondRingMode = 0; // 0 means use brighter color
+        }
+        if (!App.getApp().isMonochrome()) {
+            if (secondRingMode == 0) { // 0 means use brighter color
+                // NOP - handled individually below
+            } else if (secondRingMode == 1) { // 1 means use COLOR_YELLOW
                 dc.setColor( Gfx.COLOR_YELLOW, Gfx.COLOR_TRANSPARENT );
-            } else if (secondRingMode == 1) { // 1 means use COLOR_ORANGE
-                dc.setColor( Gfx.COLOR_ORANGE, Gfx.COLOR_TRANSPARENT );
-            } else if (secondRingMode == 2) { // 0 means use COLOR_WHITE
+            } else if (secondRingMode == 2) { // 2 means use COLOR_WHITE
                 dc.setColor( Gfx.COLOR_WHITE, Gfx.COLOR_TRANSPARENT );
-            } else if (secondRingMode == 3) { // 0 means don't draw, return
-                return;
-            } else {
-                dc.setColor( Gfx.COLOR_YELLOW, Gfx.COLOR_TRANSPARENT );
             }
         }
         
         if (rings[0] > 1.0) {
+            if (!App.getApp().isMonochrome() && secondRingMode == 0) {
+        		dc.setColor( Gfx.COLOR_RED, Gfx.COLOR_TRANSPARENT );
+        	}
             calories = App.getApp().scaleProgressToAngle(rings[0] - 1.0);
             dc.drawArc(
                 x, 
@@ -142,6 +153,9 @@ class RingsView extends Ui.View {
         }
             
         if (rings[1] > 1.0) {
+            if (!App.getApp().isMonochrome() && secondRingMode == 0) {
+        		dc.setColor( Gfx.COLOR_GREEN, Gfx.COLOR_TRANSPARENT );
+        	}
             activeMins = App.getApp().scaleProgressToAngle(rings[1] - 1.0);
             dc.drawArc(
                 x, 
@@ -153,6 +167,9 @@ class RingsView extends Ui.View {
         }
             
         if (rings[2] > 1.0) {
+            if (!App.getApp().isMonochrome() && secondRingMode == 0) {
+        		dc.setColor( Gfx.COLOR_BLUE, Gfx.COLOR_TRANSPARENT );
+        	}
             steps = App.getApp().scaleProgressToAngle(rings[2] - 1.0);
             dc.drawArc(
                 x, 

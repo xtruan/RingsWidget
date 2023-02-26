@@ -7,4 +7,4 @@ Three colored rings for quickly tracking your activity throughout the day. Avail
 - Green: Active minutes. Specify your weekly active minutes goal in your Connect profile. Default: 150.
 - Blue: Steps. Specify your daily steps goal in your Connect profile. Default: 10,000.
 
-Go for the gold! 2x goal shows up as a gold ring (customize in settings)!
+Go for the gold! 2x goal now shows up as an overlaid customizable ring!
